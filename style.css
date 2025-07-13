@@ -1,0 +1,86 @@
+@import url('https://fonts.cdnfonts.com/css/minecraftia');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Minecraftia', sans-serif;
+  height: 100vh;
+  background-color: #87CEEB; /* Minecraft sky */
+  overflow: hidden;
+}
+
+.sky {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Optional Cloud */
+.sky::before {
+  content: '';
+  background: url('https://www.pngall.com/wp-content/uploads/4/Minecraft-Cloud-PNG.png') no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 10%;
+  left: -200px;
+  animation: cloud-move 60s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes cloud-move {
+  0% { left: -200px; }
+  100% { left: 100%; }
+}
+
+.content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #3CBBF4;
+  text-shadow: 3px 3px 0 #000;
+  animation: shake 1.3s infinite;
+}
+
+.pickaxe {
+  width: 90px;
+  position: absolute;
+  top: -20px;
+  left: -110px;
+  transform: rotate(-45deg);
+  animation: pickaxe-swing 1.5s infinite;
+}
+
+/* Text Shaking as if being mined */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-1px); }
+}
+
+/* Pickaxe mining motion */
+@keyframes pickaxe-swing {
+  0%   { transform: rotate(-45deg) translateY(0); }
+  50%  { transform: rotate(-45deg) translateY(-15px); }
+  100% { transform: rotate(-45deg) translateY(0); }
+}
+
+/* Ground Block Styling */
+.ground {
+  background: url('assets/dirt-block.png') repeat-x;
+  height: 15vh;
+  background-size: 64px 64px;
+  border-top: 4px solid #5e3d1b;
+  }
